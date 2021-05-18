@@ -11,7 +11,7 @@ public class Task{
 	}
 
 	public void setId_task(Integer id_task) {
-		this.id_institution = id_institution;
+		this.id_task = id_task;
 	}
 
 	public String getName() {
@@ -22,11 +22,11 @@ public class Task{
 		this.name = name;
 	}
 
-    public String getId_status_task() {
+    public Integer getId_status_task() {
 		return this.id_status_task;
 	}
 
-    public String getId_emergency() {
+    public Integer getId_emergency() {
 		return this.id_emergency;
 	}
 }

@@ -1,4 +1,4 @@
-package Grupo2.demo.services;
+package Grupo2.demo.Services;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

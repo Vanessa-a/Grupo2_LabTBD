@@ -1,6 +1,6 @@
 package Grupo2.demo.Models;
 
-public class StatusTask{
+public class Status_task{
     private Integer id_status_task;
     private boolean status;
 

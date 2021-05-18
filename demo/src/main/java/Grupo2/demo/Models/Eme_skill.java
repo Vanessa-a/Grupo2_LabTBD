@@ -1,4 +1,4 @@
-package Grupo2.demo.models;
+package Grupo2.demo.Models;
 
 public class Eme_skill {
     private Integer id_eme_skill;
