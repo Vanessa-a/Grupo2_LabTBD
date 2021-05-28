@@ -15,7 +15,7 @@ public class EmergencyRepositoryImp implements EmergencyRepository {
     @Override
     public Integer showName() {
         Integer total = null;
-        String sql = "SELECT id_emergency FROM emergency";
+        String sql = "SELECT * FROM emergency";
         try(Connection conn = sql2o.open()){
             total = conn.createQuery(sql).executeScalar(Integer.class);
         }
