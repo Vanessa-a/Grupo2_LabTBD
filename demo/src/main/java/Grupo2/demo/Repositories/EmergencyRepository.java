@@ -6,4 +6,5 @@ import java.util.List;
 public interface EmergencyRepository {
     public void changeState(int id);
     public List<Emergency> getAllEmergency();
+    public Emergency createEmergency(Emergency emergency);
 }
