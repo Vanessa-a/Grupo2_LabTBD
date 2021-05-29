@@ -3,7 +3,7 @@ package Grupo2.demo.Models;
 public class Emergency {
     private Integer id_emergency;
     private String name;
-    private boolean status;
+    private boolean estado;
     private Integer id_institution;
 
     public Integer getId() {
@@ -19,11 +19,11 @@ public class Emergency {
     }
 
     public boolean status() {
-        return status;
+        return estado;
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.estado = status;
     }
 
     public Integer getId_institucion() {
