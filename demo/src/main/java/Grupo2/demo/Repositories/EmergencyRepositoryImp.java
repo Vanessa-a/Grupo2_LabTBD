@@ -61,4 +61,19 @@ public class EmergencyRepositoryImp implements EmergencyRepository {
             return null;
         }
     }
+
+    @Override
+    public Emergency createEmergency(Emergency emergency) {
+        try(Connection conn = sql2o.open()){
+            int insertedId = (int) conn.createQuery("INSERT INTO emergency (name, estado) values (:emergencyName, :emergencyEstado)", true)
+                    .addParameter("emergencyName", emergency.getName())
+                    .addParameter("emergencyEstado", emergency.isEstado())
+                    .executeUpdate().getKey();
+            emergency.setId_emergency(insertedId);
+            return emergency;        
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 }

@@ -34,4 +34,10 @@ public class EmergencyService {
         EmergencyRepository.changeState(id);
         return EmergencyRepository.getAllEmergency();
     }
+    @PostMapping("/emergencies")
+    @ResponseBody
+    public Emergency createEmergency(@RequestBody Emergency emergency){
+        Emergency result = EmergencyRepository.createEmergency(emergency);
+        return result;
+    }
 }
