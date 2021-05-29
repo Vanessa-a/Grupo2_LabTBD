@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,8 +24,14 @@ public class EmergencyService {
     }
 
 
-    @GetMapping("/Emergencys")
+    @GetMapping("/emergencies")
     public List<Emergency> getAllEmergency(){
+        return EmergencyRepository.getAllEmergency();
+    }
+
+    @GetMapping("/emergencies/changeState/{id}")
+    public List<Emergency> changeState(@PathVariable int id){
+        EmergencyRepository.changeState(id);
         return EmergencyRepository.getAllEmergency();
     }
 }

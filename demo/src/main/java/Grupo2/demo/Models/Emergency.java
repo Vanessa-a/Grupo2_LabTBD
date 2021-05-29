@@ -6,28 +6,37 @@ public class Emergency {
     private boolean estado;
     private Integer id_institution;
 
-    public Integer getId() {
-        return id_emergency;
+    public Integer getId_emergency() {
+        return this.id_emergency;
     }
-    
+
+    public void setId_emergency(Integer id_emergency) {
+        this.id_emergency = id_emergency;
+    }
+
     public String getName() {
-		return this.name;
-	}
-
-    public void setId(Integer id) {
-        this.id_emergency = id;
+        return this.name;
     }
 
-    public boolean status() {
-        return estado;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setStatus(boolean status) {
-        this.estado = status;
+    public boolean isEstado() {
+        return this.estado;
     }
 
-    public Integer getId_institucion() {
-        return id_institution;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
+
+    public Integer getId_institution() {
+        return this.id_institution;
+    }
+
+    public void setId_institution(Integer id_institution) {
+        this.id_institution = id_institution;
+    }
+
     
 }   

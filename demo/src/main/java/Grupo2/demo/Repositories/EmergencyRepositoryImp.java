@@ -16,17 +16,43 @@ public class EmergencyRepositoryImp implements EmergencyRepository {
     private Sql2o sql2o;
 
     @Override
-    public Integer showName() {
-        Integer total = null;
-        String sql = "SELECT * FROM emergency";
+    public void changeState(int id){
+        List<String> lista_caso = null;
         try(Connection conn = sql2o.open()){
-            total = conn.createQuery(sql).executeScalar(Integer.class);
+            lista_caso = conn.createQuery("SELECT estado FROM emergency WHERE id_emergency = :id")
+                    .addParameter("id", id)
+                    .executeAndFetch(String.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return total;
+        
+        String caso = lista_caso.get(0);
+        if (caso.equals("true")){
+            String updateSql ="update emergency set estado = false where id_emergency = :id";
+            try(Connection conn = sql2o.open()){
+                conn.createQuery(updateSql)
+                .addParameter("id", id)
+                .executeUpdate();
+                return;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        if (caso.equals("false")){
+            String updateSql ="update emergency set estado = true where id_emergency = :id";
+            try(Connection conn = sql2o.open()){
+                conn.createQuery(updateSql)
+                .addParameter("id", id)
+                .executeUpdate();
+                return;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     @Override
-    public List<Emergency> getAllEmergency(){
+    public List<Emergency> getAllEmergency(){   
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * FROM emergency")
                     .executeAndFetch(Emergency.class);
