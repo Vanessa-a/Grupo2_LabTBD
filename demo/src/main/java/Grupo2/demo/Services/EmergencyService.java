@@ -2,11 +2,18 @@ package Grupo2.demo.Services;
 
 import Grupo2.demo.Models.Emergency;
 import Grupo2.demo.Repositories.EmergencyRepository;
+
+import java.util.List;
+
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 public class EmergencyService {
 
@@ -17,8 +24,7 @@ public class EmergencyService {
 
 
     @GetMapping("/Emergencys")
-    public String showName(){
-        Integer total = EmergencyRepository.showName();
-        return String.format("%s", total);
+    public List<Emergency> getAllEmergency(){
+        return EmergencyRepository.getAllEmergency();
     }
 }
