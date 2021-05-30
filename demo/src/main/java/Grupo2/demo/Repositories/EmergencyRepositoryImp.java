@@ -76,4 +76,31 @@ public class EmergencyRepositoryImp implements EmergencyRepository {
             return null;
         }
     }
+
+    @Override
+    public void deleteEmergency(int id) {
+            String deleteSql ="DELETE FROM emergency WHERE id_emergency = :id";
+            try(Connection conn = sql2o.open()){
+                conn.createQuery(deleteSql)
+                .addParameter("id", id)
+                .executeUpdate();
+                return;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+    }
+
+    @Override
+    public void updateEmergency(Emergency emergency, int id) {
+        String updateSql = "update emergency set name = :emergencyName where id_emergency = :id";
+        try(Connection conn = sql2o.open()){
+                    conn.createQuery(updateSql)
+                    .addParameter("emergencyName", emergency.getName())
+                    .addParameter("id", id)
+                    .executeUpdate();
+            return;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
