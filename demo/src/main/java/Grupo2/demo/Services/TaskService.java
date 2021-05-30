@@ -5,12 +5,14 @@ import Grupo2.demo.Models.Task;
 import Grupo2.demo.Repositories.TaskRepository;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 public class TaskService {
 
@@ -24,7 +26,7 @@ public class TaskService {
         return TaskRepository.getTotalTasks();
     }
 
-    @GetMapping("/tasks2")
+    @GetMapping("/totalTasks")
     public List<Get_active_tasks> getTotalTasks2(){
         return TaskRepository.getTotalTasks2();
     }
