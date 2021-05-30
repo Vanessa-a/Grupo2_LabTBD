@@ -29,7 +29,7 @@ public class EmergencyService {
         return EmergencyRepository.getAllEmergency();
     }
 
-    @GetMapping("/emergencies/changeState/{id}")
+    @PostMapping("/emergencies/changeState/{id}")
     public List<Emergency> changeState(@PathVariable int id){
         EmergencyRepository.changeState(id);
         return EmergencyRepository.getAllEmergency();
@@ -40,4 +40,7 @@ public class EmergencyService {
         Emergency result = EmergencyRepository.createEmergency(emergency);
         return result;
     }
+    
+    
+   
 }
