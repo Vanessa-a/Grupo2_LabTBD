@@ -1,7 +1,9 @@
 package Grupo2.demo.Repositories;
-import org.json.JSONObject;
+
+import Grupo2.demo.Models.Task;
+import java.util.List;
 
 public interface TaskRepository {
-    public JSONObject getTotalTasks();    
+    public List<String>  getTotalTasks();    
 }
 
