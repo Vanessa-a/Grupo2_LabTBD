@@ -24,12 +24,7 @@ public class RankingService {
     public List<Ranking> getAllRanking(){
         return RankingRepository.getAllRanking();
     }
-
-    @PostMapping("/ranking/changeState/{id}")
-    public List<Ranking> changeState(@PathVariable int id){
-        RankingRepository.changeState(id);
-        return RankingRepository.getAllRanking();
-    }
+    
     @PostMapping("/ranking")
     @ResponseBody
     public Ranking createRanking(@RequestBody Ranking ranking){

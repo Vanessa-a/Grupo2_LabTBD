@@ -20,7 +20,7 @@ public class Eme_skillRepositoryImp implements Eme_skillRepository{
         try(Connection conn = sql2o.open()){
             int insertedId = (int) conn.createQuery("INSERT INTO eme_skill (id_emergency, id_skill) values (:eme_skill_id_emergency, :eme_skill_id_skill)", true)
             .addParameter("eme_skill_id_emergency", eme_skill.getId_emergency())
-            .addParameter("eme_skill_id_skill", eme_skil.getId_skill())
+            .addParameter("eme_skill_id_skill", eme_skill.getId_skill())
             .executeUpdate().getKey();
             eme_skill.setId_eme_skill(insertedId);
             return eme_skill;        
@@ -60,7 +60,7 @@ public class Eme_skillRepositoryImp implements Eme_skillRepository{
         try(Connection conn = sql2o.open()){
                     conn.createQuery(updateSql)
                     .addParameter("eme_skill_id_emergency", eme_skill.getId_emergency())
-                    .addParameter("eme_skill_id_skill", eme_skil.getId_skill())
+                    .addParameter("eme_skill_id_skill", eme_skill.getId_skill())
                     .addParameter("id", id)
                     .executeUpdate();
             return;

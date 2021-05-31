@@ -26,11 +26,6 @@ public class InstitutionService {
         return InstitutionRepository.getAllInstitution();
     }
 
-    @PostMapping("/institutions/changeState/{id}")
-    public List<Institution> changeState(@PathVariable int id){
-        InstitutionRepository.changeState(id);
-        return InstitutionRepository.getAllInstitution();
-    }
     @PostMapping("/institutions")
     @ResponseBody
     public Institution createInstitution(@RequestBody Institution institution){

@@ -19,7 +19,7 @@ public class RankingRepositoryImp implements RankingRepository {
     public Ranking createRanking(Ranking ranking) {
         try(Connection conn = sql2o.open()){
             int insertedId = (int) conn.createQuery("INSERT INTO ranking (numRanking) values (:numeroRanking )", true)
-            .addParameter("numeroRanking", ranking.getNum())
+            .addParameter("numeroRanking", ranking.getNumRanking())
             .executeUpdate().getKey();
             ranking.setId_ranking(insertedId);
             return ranking;        
@@ -30,7 +30,7 @@ public class RankingRepositoryImp implements RankingRepository {
     }
 
     @Override
-    public List<Ranking> getAllRankings(){   
+    public List<Ranking> getAllRanking(){   
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * FROM ranking")
                     .executeAndFetch(Ranking.class);
@@ -58,7 +58,7 @@ public class RankingRepositoryImp implements RankingRepository {
         String updateSql = "update ranking set name = :numRanking where id_ranking = :id";
         try(Connection conn = sql2o.open()){
                     conn.createQuery(updateSql)
-                    .addParameter("numRanking", ranking.getName())
+                    .addParameter("numRanking", ranking.getNumRanking())
                     .addParameter("id", id)
                     .executeUpdate();
             return;

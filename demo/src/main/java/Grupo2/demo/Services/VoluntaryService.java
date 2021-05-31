@@ -44,7 +44,7 @@ public class VoluntaryService {
     @ResponseBody
     public List<Voluntary> updateVoluntary(@RequestBody Voluntary voluntary, @PathVariable int id){
         VoluntaryRepository.updateVoluntary(voluntary, id);
-        return voluntaryRepository.getAllVoluntary();
+        return VoluntaryRepository.getAllVoluntary();
     }
 
 }

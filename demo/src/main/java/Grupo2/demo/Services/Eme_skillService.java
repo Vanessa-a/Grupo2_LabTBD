@@ -29,7 +29,7 @@ public class Eme_skillService {
     @PostMapping("/eme_skills")
     @ResponseBody
     public Eme_skill createEme_skill(@RequestBody Eme_skill eme_skill){
-        Eme_skill result = Eme_skillRepository.createEme_skill(Eme_skill);
+        Eme_skill result = Eme_skillRepository.createEme_skill(eme_skill);
         return result;
     }
 
@@ -43,7 +43,7 @@ public class Eme_skillService {
     @PutMapping("/eme_skills/update/{id}")
     @ResponseBody
     public List<Eme_skill> updateEme_skill(@RequestBody Eme_skill eme_skill, @PathVariable int id){
-        Eme_skillRepository.updateEme_skill(Eme_skill, id);
+        Eme_skillRepository.updateEme_skill(eme_skill, id);
         return Eme_skillRepository.getAllEme_skill();
     }
 

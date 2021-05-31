@@ -19,7 +19,7 @@ public class Vol_skillRepositoryImp implements Vol_skillRepository {
         try(Connection conn = sql2o.open()){
             int insertedId = (int) conn.createQuery("INSERT INTO vol_skill (id_voluntary, id_skill) values (:vol_skill_id_voluntary, :vol_skill_id_skill)", true)
             .addParameter("vol_skill_id_voluntary", vol_skill.getId_voluntary())
-            .addParameter("vol_skill_id_skill", vol_skil.getId_skill())
+            .addParameter("vol_skill_id_skill", vol_skill.getId_skill())
             .executeUpdate().getKey();
             vol_skill.setId_vol_skill(insertedId);
             return vol_skill;        
@@ -59,7 +59,7 @@ public class Vol_skillRepositoryImp implements Vol_skillRepository {
         try(Connection conn = sql2o.open()){
                     conn.createQuery(updateSql)
                     .addParameter("vol_skill_id_voluntary", vol_skill.getId_voluntary())
-                    .addParameter("vol_skill_id_skill", vol_skil.getId_skill())
+                    .addParameter("vol_skill_id_skill", vol_skill.getId_skill())
                     .addParameter("id", id)
                     .executeUpdate();
             return;
