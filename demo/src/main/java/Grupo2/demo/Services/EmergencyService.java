@@ -4,8 +4,6 @@ import Grupo2.demo.Models.Emergency;
 import Grupo2.demo.Repositories.EmergencyRepository;
 
 import java.util.List;
-
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
