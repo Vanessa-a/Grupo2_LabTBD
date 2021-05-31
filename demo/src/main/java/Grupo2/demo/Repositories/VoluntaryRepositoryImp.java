@@ -60,7 +60,7 @@ public class VoluntaryRepositoryImp implements VoluntaryRepository{
 
     @Override
     public void updateVoluntary(Voluntary voluntary, int id) {
-        String updateSql = "update voluntary set name = :voluntaryName, set disponibilidad =:disp where id_disponibilidad = :id";
+        String updateSql = "update voluntary set name = :voluntaryName, disponibilidad =:disp where id_voluntary = :id";
         try(Connection conn = sql2o.open()){
                     conn.createQuery(updateSql)
                     .addParameter("voluntaryName", voluntary.getName())
