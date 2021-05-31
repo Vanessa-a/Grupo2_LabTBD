@@ -16,32 +16,23 @@ Instrucciones de instalación:
             
       c) Ejecutar comando en terminal:
       
-       psql -f ./tables_db_emergencies.sql
+       psql -f [rutadelarchivo]/tables_db_emergencies.sql
             
       d) Ejecutar comando en terminal:
       
-       psql -f ./data_db_emergencies.sql
+       psql -f [rutadelarchivo]/data_db_emergencies.sql
             
       e) Cerrar terminal
       
-3) Descomprimir front.zip en la misma carpeta raíz
+3) Descomprimir frontVfinal.zip en la misma carpeta raíz
 4) Abrir terminal en carpeta demo, ejecutar:
+
     ./gradlew bootRun
+
 5) Abrir terminal en nueva carpeta front creada, ejecutar:
+
+    npm install @nuxtjs/axios
+
     npm run dev
+
 5) Abrir en navegador la direccion web indicada.
-
-
-
-Errores comunes:
-  1) nuxt.js not found al ejecutar npm run dev:
-  
-      a) Eliminar carpeta node_modules
-      
-      b) Ejecutar comando en el mismo terminal:
-      
-         npm install @nuxtjs/axios
-          
-      c) Volver a ejecutar comando:
-      
-         npm run dev

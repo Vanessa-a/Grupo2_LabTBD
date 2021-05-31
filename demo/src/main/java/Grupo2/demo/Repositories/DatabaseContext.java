@@ -11,6 +11,6 @@ public class DatabaseContext {
     //Ejemplo: jdbc:postgresql://127.0.0.1:5432/postgres, usuario, password
     @Bean
     public Sql2o sql2o(){
-        return new Sql2o("jdbc:postgresql://localhost:5432/db_emergencias", "postgres", "password");
+        return new Sql2o("jdbc:postgresql://localhost:5432/db_emergencias", "dbusr_grupo2", "grupo2");
     }
 }
