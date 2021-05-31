@@ -3,7 +3,7 @@ package Grupo2.demo.Models;
 public class Voluntary{
     private Integer id_voluntary;
     private String name;
-    private String disponibilidad;
+    private boolean disponibilidad;
 
 	public Integer getId_voluntary() {
 		return this.id_voluntary;
@@ -21,11 +21,11 @@ public class Voluntary{
 		this.name = name;
 	}
 
-	public String getDisponibilidad() {
+	public boolean getDisponibilidad() {
 		return this.disponibilidad;
 	}
 
-	public void setDisponibilidad(String disponibilidad) {
+	public void setDisponibilidad(boolean disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
 

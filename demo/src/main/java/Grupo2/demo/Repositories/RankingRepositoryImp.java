@@ -18,8 +18,9 @@ public class RankingRepositoryImp implements RankingRepository {
     @Override
     public Ranking createRanking(Ranking ranking) {
         try(Connection conn = sql2o.open()){
-            int insertedId = (int) conn.createQuery("INSERT INTO ranking (numRanking) values (:numeroRanking )", true)
+            int insertedId = (int) conn.createQuery("INSERT INTO ranking (numRanking, id_voluntary) values (:numeroRanking, :ranking_id_voluntary )", true)
             .addParameter("numeroRanking", ranking.getNumRanking())
+            .addParameter("ranking_id_voluntary", ranking.getId_voluntary())
             .executeUpdate().getKey();
             ranking.setId_ranking(insertedId);
             return ranking;        
@@ -42,7 +43,7 @@ public class RankingRepositoryImp implements RankingRepository {
 
     @Override
     public void deleteRanking(int id) {
-            String deleteSql ="DELETE FROM task WHERE id_ranking = :id";
+            String deleteSql ="DELETE FROM ranking WHERE id_ranking = :id";
             try(Connection conn = sql2o.open()){
                 conn.createQuery(deleteSql)
                 .addParameter("id", id)
@@ -55,10 +56,11 @@ public class RankingRepositoryImp implements RankingRepository {
 
     @Override
     public void updateRanking(Ranking ranking, int id) {
-        String updateSql = "update ranking set name = :numRanking where id_ranking = :id";
+        String updateSql = "update ranking set numRanking = :numeroRanking, id_voluntary = :ranking_id_voluntary where id_ranking = :id";
         try(Connection conn = sql2o.open()){
                     conn.createQuery(updateSql)
-                    .addParameter("numRanking", ranking.getNumRanking())
+                    .addParameter("numeroRanking", ranking.getNumRanking())
+                    .addParameter("ranking_id_voluntary", ranking.getId_voluntary())
                     .addParameter("id", id)
                     .executeUpdate();
             return;
